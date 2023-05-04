@@ -1,0 +1,8 @@
+{
+  "name": "learn-account-abstraction",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Inaridiy <inainainariinainari@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@3.5.1"
+}
