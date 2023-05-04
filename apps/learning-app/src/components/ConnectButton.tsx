@@ -6,20 +6,23 @@ import {
   isSupportedNetworkAtom,
   networkAtom,
   providerAtom,
+  signerAtom,
 } from "@/states/crypto";
 import { useAtom, useSetAtom } from "jotai";
 import { Button } from "./ui/button";
 
 export const ConnectButton = () => {
   const setNetwork = useSetAtom(networkAtom);
+  const setSigner = useSetAtom(signerAtom);
   const [account, setAccount] = useAtom(accountAtom);
   const [provider, setProvider] = useAtom(providerAtom);
   const [isSupportedNetwork] = useAtom(isSupportedNetworkAtom);
 
   const connectWallet = async () => {
     if (!window.ethereum) return alert("Please install metamask");
-    const { provider, address, network } = await connect();
+    const { provider, address, network, signer } = await connect();
     setProvider(provider);
+    setSigner(signer);
     setAccount({ address, shortAddress: `${address.slice(0, 6)}...${address.slice(-4)}` });
     setNetwork({ id: Number(network.chainId), name: network.name });
 

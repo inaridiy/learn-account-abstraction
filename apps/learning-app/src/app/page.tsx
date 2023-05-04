@@ -24,6 +24,10 @@ const topics = [
         title: "Deploy Account",
         subtitle: "Deploy the account contract",
       },
+      {
+        title: "Check Your Account",
+        subtitle: "Check your account on the blockchain",
+      },
     ],
     startTitle: "Let's GO!!!",
   },

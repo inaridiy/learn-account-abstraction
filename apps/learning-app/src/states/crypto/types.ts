@@ -7,3 +7,13 @@ export type Network = {
   id: number;
   name: string;
 };
+
+export type ContractSummary = {
+  abi: any;
+  deploy: {
+    [chainId in number]: {
+      address: string;
+      explorer: string;
+    };
+  };
+};
