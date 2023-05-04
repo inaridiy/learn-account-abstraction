@@ -1,11 +1,6 @@
-"use client";
-import { accountAtom } from "@/states/crypto";
-import { useAtomValue } from "jotai";
 import Image from "next/image";
 
-export const DeployAccountSection = () => {
-  const account = useAtomValue(accountAtom);
-
+export const CheckAccountSection = () => {
   return (
     <section className="w-full">
       <h2 className="text-3xl font-bold border-b p-2">3. Check Your Account</h2>
@@ -27,7 +22,15 @@ export const DeployAccountSection = () => {
       <p className="p-2 text-lg text-muted-foreground">
         That's it for this course. See you soon. This project was initiated by inaridiy, but there
         is still much work to be done. If you share my feelings about this project, I'm waiting for
-        you on Github.
+        you on{" "}
+        <a
+          target="_blank"
+          className="underline-offset-4 underline text-primary"
+          href="https://github.com/inaridiy/learn-account-abstraction"
+        >
+          Github
+        </a>
+        .
       </p>
     </section>
   );
