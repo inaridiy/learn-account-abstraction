@@ -59,7 +59,7 @@ export default function Home() {
               ))}
             </CardContent>
             <CardFooter>
-              <Link href="/" className={cn(buttonVariants({}), "w-full")}>
+              <Link href={`/topics/${topic.id}`} className={cn(buttonVariants({}), "w-full")}>
                 {topic.startTitle}
               </Link>
             </CardFooter>
