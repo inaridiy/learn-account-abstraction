@@ -1,12 +1,11 @@
 "use client";
 import { ContractCallPanel } from "@/components/topic/contract-call-panel";
 import { simpleFactoryContract } from "@/contracts/simple-factory";
-import { accountAtom, networkAtom } from "@/states/crypto";
+import { accountAtom } from "@/states/crypto";
 import { useAtomValue } from "jotai";
 
 export const DeployAccountSection = () => {
   const account = useAtomValue(accountAtom);
-  const network = useAtomValue(networkAtom);
 
   return (
     <section className="w-full">
