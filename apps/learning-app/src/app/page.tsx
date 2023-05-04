@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center px-4 py-8 sm:py-24">
       <h1 className="text-4xl font-bold text-center">
-        Let's Learn <br />
+        {"Let's Learn"} <br />
         Account Abstraction
       </h1>
 
