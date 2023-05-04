@@ -1,0 +1,6 @@
+[submodule "packages/aa-sandbox"]
+	path = packages/aa-sandbox
+	url = https://github.com/m0t0k1ch1/aa-sandbox
+[submodule "packages/account-abstraction"]
+	path = packages/account-abstraction
+	url = https://github.com/eth-infinitism/account-abstraction
