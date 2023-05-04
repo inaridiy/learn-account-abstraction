@@ -11,7 +11,7 @@ export const GuessAddressSection = () => {
   const chainId = network?.id || 137;
 
   return (
-    <section>
+    <section className="w-full">
       <h2 className="text-3xl font-bold border-b p-2">1. Guess Address</h2>
       <p className="p-2 text-lg text-muted-foreground">
         Ethereum allows you to know in advance the address where the contract will be deployed. In

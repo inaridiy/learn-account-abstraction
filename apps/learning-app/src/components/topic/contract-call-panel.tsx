@@ -33,7 +33,7 @@ export const ContractCallPanel: React.FC<{
   };
 
   return (
-    <Card className="w-full shadow flex flex-col sm:flex-row">
+    <Card className="w-full shadow flex flex-col sm:flex-row overflow-auto">
       <div className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>{fragment.format()}</CardTitle>
