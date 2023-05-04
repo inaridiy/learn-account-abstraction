@@ -2,6 +2,7 @@ import { ContractSummary } from "@/states/crypto";
 import { ENTRYPOINT_ABI } from "./abi";
 
 export const entrypointContract: ContractSummary = {
+  name: "Entrypoint",
   abi: ENTRYPOINT_ABI,
   deploy: {
     137: {

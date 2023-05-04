@@ -2,6 +2,7 @@ import { ContractSummary } from "@/states/crypto";
 import { SIMPLE_FACTORY_ABI } from "./abi";
 
 export const simpleFactoryContract: ContractSummary = {
+  name: "SimpleFactory",
   abi: SIMPLE_FACTORY_ABI,
   deploy: {
     137: {

@@ -316,6 +316,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@radix-ui/react-label@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@radix-ui/react-label@npm:2.0.1"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+    "@radix-ui/react-primitive": 1.0.2
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 060783add530507eec906481c5a0c5ef58921435c27726b249bbb95d6d0fb915246880a003388be2ba06420132dcd425167f83b1d76b07dd3c9d8c74c4111b60
+  languageName: node
+  linkType: hard
+
 "@radix-ui/react-primitive@npm:1.0.2":
   version: 1.0.2
   resolution: "@radix-ui/react-primitive@npm:1.0.2"
@@ -2631,6 +2644,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "learning-app@workspace:apps/learning-app"
   dependencies:
+    "@radix-ui/react-label": ^2.0.1
     "@radix-ui/react-separator": ^1.0.2
     "@radix-ui/react-slot": ^1.0.1
     "@types/node": 18.16.3

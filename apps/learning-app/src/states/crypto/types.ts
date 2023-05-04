@@ -9,6 +9,7 @@ export type Network = {
 };
 
 export type ContractSummary = {
+  name: string;
   abi: any;
   deploy: {
     [chainId in number]: {
