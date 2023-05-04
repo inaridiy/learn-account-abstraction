@@ -33,8 +33,9 @@ yarn-error.log*
 .turbo
 
 # yarn
-.yarn
-!.yarn/release/*
+.yarn/cache
+.yarn/install-state.gz
+
 
 # cloudflare
 wrangler.toml
