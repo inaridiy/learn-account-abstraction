@@ -1,3 +1,3 @@
 export const Footer = () => {
-  return <footer className="p-8"></footer>;
+  return <footer className="p-8 bg-"></footer>;
 };
