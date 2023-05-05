@@ -44,7 +44,7 @@ export const ConnectButton = () => {
   if (!account) {
     return <Button onClick={connectWallet}>Connect Wallet</Button>;
   } else if (!isSupportedNetwork) {
-    return <Button variant="destructive">Unsupported</Button>;
+    return <Button variant="destructive">Please switch to Polygon</Button>;
   } else {
     return (
       <Button variant="outline" onClick={disconnectWallet}>

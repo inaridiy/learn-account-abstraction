@@ -14,9 +14,9 @@ export const GuessAddressSection = () => {
     <section className="w-full">
       <h2 className="text-3xl font-bold border-b p-2">1. Guess Address</h2>
       <p className="p-2 text-lg text-muted-foreground">
-        Ethereum allows you to know in advance the address where the contract will be deployed. In
-        this section we will try to find out to which address the contract wallet we are about to
-        deploy will be deployed.
+        AA wallets are just contract wallets once you go there, so you need to deploy them to the
+        blockchain before you use them. Before deploying, try to guess to which address the wallet
+        will deploy!
       </p>
       <p className="p-2 text-lg text-muted-foreground">
         In this case, we will deploy a contract wallet using a contract called{" "}
