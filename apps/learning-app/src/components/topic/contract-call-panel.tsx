@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import { useToast } from "../ui/use-toast";
 
 export const ContractCallPanel: React.FC<{
   contract: ContractSummary;
@@ -23,6 +24,7 @@ export const ContractCallPanel: React.FC<{
   const { form, register } = useMiniForm(initialArgs);
   const [executeAtom, setExecuteAtom] = useState<Atom<any>>(atom(null));
   const result = useAtomValue(executeAtom);
+  const { toast } = useToast();
 
   if (!contract) return <ConnectButton />;
   if (!fragment) throw new Error(`Function ${functionName} not found in contract ${summary.name}.`);
@@ -30,11 +32,25 @@ export const ContractCallPanel: React.FC<{
   const call = async () => {
     const result = contract[fragment.format()](...Object.values(form));
     setExecuteAtom(loadable(atom(result)));
+    result.then((mayBeTx) => {
+      if (!mayBeTx?.hash) return;
+      const shortHash = `${mayBeTx.hash.slice(0, 6)}...${mayBeTx.hash.slice(-4)}`;
+      toast({
+        title: "Transaction pending",
+        description: `Transaction ${shortHash} is pending.`,
+      });
+      mayBeTx.wait().then(() => {
+        toast({
+          title: "Transaction confirmed",
+          description: `Transaction ${shortHash} is confirmed.`,
+        });
+      });
+    });
   };
 
   return (
     <Card className="w-full shadow flex flex-col sm:flex-row overflow-auto">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm flex-shrink-0">
         <CardHeader>
           <CardTitle>{fragment.format()}</CardTitle>
         </CardHeader>
@@ -60,12 +76,10 @@ export const ContractCallPanel: React.FC<{
       </div>
 
       {/* 雑な結果教示 */}
-      {result && (
-        <div className="py-2 px-4 sm:border-l">
-          <h3 className="text-lg font-bold pt-2">Result</h3>
-          <pre className="overflow-auto">{JSON.stringify(result, null, 2)}</pre>
-        </div>
-      )}
+      <div className="py-2 px-4 sm:border-l overflow-auto">
+        <h3 className="text-lg font-bold pt-2">Result</h3>
+        {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+      </div>
     </Card>
   );
 };

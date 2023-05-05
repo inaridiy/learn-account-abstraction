@@ -31,6 +31,30 @@ const topics = [
     ],
     startTitle: "Let's GO!!!",
   },
+  {
+    id: "send-tx-with-aa",
+    title: "Step2. Send Tx with AA",
+    description: "Let's execute a transaction using the AA wallet you created!",
+    steps: [
+      {
+        title: "Learn about UserOp",
+        subtitle: "Let's learn UserOp with hands-on experience!",
+      },
+      {
+        title: "Send gas fee to AA wallet",
+        subtitle: "Send gas fee to AA wallet to prepare.",
+      },
+      {
+        title: "Send empty Tx with AA",
+        subtitle: "Create an empty UserOp and send an empty Tx from AA",
+      },
+      {
+        title: "Send ERC20 transfer Tx with AA",
+        subtitle: "Let's transfer ERC20 from AA!",
+      },
+    ],
+    startTitle: "Let's GO!!!",
+  },
 ] as const;
 
 export default function Home() {
@@ -43,12 +67,12 @@ export default function Home() {
 
       <div className="grid py-12 px-2 sm:px-4 gap-4 sm:grid-cols-2">
         {topics.map((topic) => (
-          <Card key={topic.id}>
+          <Card key={topic.id} className="flex flex-col">
             <CardHeader>
               <CardTitle>{topic.title}</CardTitle>
               <CardDescription>{topic.description}</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1">
               {topic.steps.map((step) => (
                 <div
                   key={step.title}
