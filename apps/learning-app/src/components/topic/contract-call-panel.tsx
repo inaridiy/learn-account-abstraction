@@ -50,7 +50,7 @@ export const ContractCallPanel: React.FC<{
 
   return (
     <Card className="w-full shadow flex flex-col sm:flex-row overflow-auto">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm flex-shrink-0">
         <CardHeader>
           <CardTitle>{fragment.format()}</CardTitle>
         </CardHeader>
@@ -76,12 +76,10 @@ export const ContractCallPanel: React.FC<{
       </div>
 
       {/* 雑な結果教示 */}
-      {result && (
-        <div className="py-2 px-4 sm:border-l">
-          <h3 className="text-lg font-bold pt-2">Result</h3>
-          <pre className="overflow-auto">{JSON.stringify(result, null, 2)}</pre>
-        </div>
-      )}
+      <div className="py-2 px-4 sm:border-l overflow-auto">
+        <h3 className="text-lg font-bold pt-2">Result</h3>
+        {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+      </div>
     </Card>
   );
 };
