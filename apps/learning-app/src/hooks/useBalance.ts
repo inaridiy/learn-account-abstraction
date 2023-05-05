@@ -12,6 +12,7 @@ export const useBalance = (address: string) => {
     if (!ethers.isAddress(address)) return;
     provider.getBalance(address).then((balance) => {
       const formatted = ethers.formatEther(balance);
+
       setBalance(
         formatted.split(".")[0].length > 4 ? formatted.split(".")[0] : formatted.slice(0, 4)
       );
@@ -20,7 +21,7 @@ export const useBalance = (address: string) => {
 
   useEffect(() => {
     refetch();
-  }, [provider]);
+  }, [provider, address]);
 
   return { balance, refetch };
 };

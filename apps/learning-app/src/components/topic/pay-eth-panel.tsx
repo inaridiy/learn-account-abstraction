@@ -30,11 +30,10 @@ export const PayEthPanel: React.FC<{
   const { refetch: refetch2, balance: targetBalance } = useBalance(form.target || "0x");
 
   useEffect(() => {
-    if (!factory || !account || account.address === "0x") return;
+    if (!factory || !account || form.target) return;
 
     factory["getAddress(address,uint256)"](account.address, 0).then((address) => {
       updateForm("target", address);
-      updateForm("value", "0.1");
     });
   }, [factory, account]);
 
@@ -102,18 +101,18 @@ export const PayEthPanel: React.FC<{
       <div className="py-2 px-4 sm:border-l overflow-auto">
         <h3 className="text-lg font-bold pt-2">Balances</h3>
         <div className="flex justify-between gap-2 pl-2 pt-2 items-center">
-          <div className="border-r pr-2">
+          <div className="text-lg font-bold">{yourBalance}ETH</div>
+          <div className="border-l pl-2">
             <div className="font-bold">You</div>
             <div className="text-sm text-muted-foreground font-mono">{account?.address}</div>
           </div>
-          <div className="text-xl font-bold">{yourBalance}ETH</div>
         </div>
         <div className="flex justify-between gap-2 pl-2 pt-4 items-center">
-          <div className="border-r pr-2">
+          <div className="text-lg font-bold">{targetBalance}ETH</div>
+          <div className="border-l pl-2">
             <div className="font-bold">Target</div>
             <div className="text-sm text-muted-foreground font-mono">{form.target}</div>
           </div>
-          <div className="text-xl font-bold">{targetBalance}ETH</div>
         </div>
       </div>
     </Card>
