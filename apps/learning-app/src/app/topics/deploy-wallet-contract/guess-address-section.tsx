@@ -1,14 +1,14 @@
 "use client";
 import { ContractCallPanel } from "@/components/topic/contract-call-panel";
 import { simpleFactoryContract } from "@/contracts/simple-factory";
-import { accountAtom, networkAtom } from "@/states/crypto";
+import { accountAtom } from "@/states/crypto";
 import { useAtomValue } from "jotai";
 import Image from "next/image";
 
 export const GuessAddressSection = () => {
   const account = useAtomValue(accountAtom);
-  const network = useAtomValue(networkAtom);
-  const chainId = network?.id || 137;
+
+  const chainId = 137;
 
   return (
     <section className="w-full">
@@ -23,7 +23,7 @@ export const GuessAddressSection = () => {
         <a
           target="_blank"
           className="underline-offset-4 underline text-primary"
-          href={simpleFactoryContract.deploy[chainId].explorer}
+          href={simpleFactoryContract.deploy[chainId]?.explorer}
         >
           SimpleAccountFactory.
         </a>{" "}
