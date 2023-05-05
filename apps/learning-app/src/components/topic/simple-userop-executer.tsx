@@ -81,7 +81,7 @@ export const SimplerUseropExecutePanel = () => {
         <div className="w-full max-w-sm flex-shrink-0">
           <CardHeader>
             <CardTitle>AA Tx Sender</CardTitle>
-            <CardDescription>Let's send AA tx by Simple Account!</CardDescription>
+            <CardDescription>Let&apos;s send AA tx by Simple Account!</CardDescription>
           </CardHeader>
           <CardContent className="gap-2 flex flex-col">
             <div className="grid w-full max-w-sm items-center gap-1.5">

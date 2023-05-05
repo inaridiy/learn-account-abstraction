@@ -58,7 +58,7 @@ export const SimplerUseropPanel = () => {
       <div className="w-full max-w-sm flex-shrink-0">
         <CardHeader>
           <CardTitle>UserOp Builder</CardTitle>
-          <CardDescription>Let's generate a UserOp for Simple Account!</CardDescription>
+          <CardDescription>Let&apos;s generate a UserOp for Simple Account!</CardDescription>
         </CardHeader>
         <CardContent className="gap-2 flex flex-col">
           <div className="grid w-full max-w-sm items-center gap-1.5">

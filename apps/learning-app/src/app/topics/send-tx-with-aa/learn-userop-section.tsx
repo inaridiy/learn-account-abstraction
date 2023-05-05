@@ -15,7 +15,7 @@ export const LearnUserOpSection = () => {
         (which you should have created earlier).
       </p>
       <p className="p-2 text-lg text-muted-foreground">
-        Let's put aside the details and try to generate UserOperation by adding various values!
+        Let&apos;s put aside the details and try to generate UserOperation by adding various values!
       </p>
       <SimplerUseropPanel />
     </section>
