@@ -26,6 +26,7 @@ export const SimplerUseropPanel = () => {
 
   useEffect(() => {
     if (!factory || !account || form.sender) return;
+
     factory["getAddress(address,uint256)"](account.address, 0).then((address) => {
       updateForm("sender", address);
     });

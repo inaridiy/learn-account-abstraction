@@ -8,8 +8,6 @@ interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function CodeBlock({ children, className }: CodeBlockProps) {
-  const [isOpened, setIsOpened] = React.useState(false);
-
   return (
     <pre className={cn("rounded-md border px-4 py-3 font-mono text-sm overflow-auto", className)}>
       <code>{children}</code>
