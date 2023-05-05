@@ -12,6 +12,7 @@ import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import { useToast } from "../ui/use-toast";
 
 export const ContractCallPanel: React.FC<{
   contract: ContractSummary;
@@ -23,6 +24,7 @@ export const ContractCallPanel: React.FC<{
   const { form, register } = useMiniForm(initialArgs);
   const [executeAtom, setExecuteAtom] = useState<Atom<any>>(atom(null));
   const result = useAtomValue(executeAtom);
+  const { toast } = useToast();
 
   if (!contract) return <ConnectButton />;
   if (!fragment) throw new Error(`Function ${functionName} not found in contract ${summary.name}.`);
@@ -30,6 +32,20 @@ export const ContractCallPanel: React.FC<{
   const call = async () => {
     const result = contract[fragment.format()](...Object.values(form));
     setExecuteAtom(loadable(atom(result)));
+    result.then((mayBeTx) => {
+      if (!mayBeTx?.hash) return;
+      const shortHash = `${mayBeTx.hash.slice(0, 6)}...${mayBeTx.hash.slice(-4)}`;
+      toast({
+        title: "Transaction pending",
+        description: `Transaction ${shortHash} is pending.`,
+      });
+      mayBeTx.wait().then(() => {
+        toast({
+          title: "Transaction confirmed",
+          description: `Transaction ${shortHash} is confirmed.`,
+        });
+      });
+    });
   };
 
   return (
