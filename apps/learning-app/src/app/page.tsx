@@ -48,10 +48,6 @@ const topics = [
         title: "Send empty Tx with AA",
         subtitle: "Create an empty UserOp and send an empty Tx from AA",
       },
-      {
-        title: "Send ERC20 transfer Tx with AA",
-        subtitle: "Let's transfer ERC20 from AA!",
-      },
     ],
     startTitle: "Let's GO!!!",
   },
