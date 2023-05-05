@@ -1,5 +1,6 @@
 import { TopicHeader } from "@/components/topic/topic-header";
 import { LearnUserOpSection } from "./learn-userop-section";
+import { SendEmptySection } from "./send-empty-section";
 import { SendGasFeeSection } from "./send-gas-fee-section";
 
 export default function Topic() {
@@ -10,6 +11,7 @@ export default function Topic() {
         <div className="flex flex-col gap-36">
           <LearnUserOpSection />
           <SendGasFeeSection />
+          <SendEmptySection />
         </div>
       </main>
     </>

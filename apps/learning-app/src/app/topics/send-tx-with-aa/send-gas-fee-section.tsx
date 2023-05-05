@@ -1,5 +1,3 @@
-"use client";
-
 import { PayEthPanel } from "@/components/topic/pay-eth-panel";
 
 export const SendGasFeeSection = () => {

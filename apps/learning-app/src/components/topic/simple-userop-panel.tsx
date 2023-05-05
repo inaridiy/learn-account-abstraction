@@ -33,7 +33,8 @@ export const SimplerUseropPanel = () => {
   }, [factory, account]);
 
   const buildUserOp = async () => {
-    const { sender, target, value, data } = form;
+    const { sender, target = sender, value, data } = form;
+    console.log(target);
     if (!signer || !sender || !target) return;
 
     const formattedValue = value && ethers.parseEther(value);
