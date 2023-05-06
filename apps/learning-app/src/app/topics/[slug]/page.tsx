@@ -1,6 +1,6 @@
+import { MDX } from "@/components/MDX";
 import { TopicHeader } from "@/components/topic/topic-header";
 import { Topic, allTopics } from "contentlayer/generated";
-import { getMDXComponent } from "next-contentlayer/hooks";
 
 export const generateStaticParams = async () =>
   allTopics.map((topic) => ({ slug: topic._raw.flattenedPath }));
@@ -14,14 +14,12 @@ export const generateMetadata = ({ params }: any) => {
 export default function Topic({ params }: { params: { slug: string } }) {
   const topic: Topic = allTopics.find((topic) => topic._raw.flattenedPath === params.slug) as Topic;
 
-  const Content = getMDXComponent(topic.body.code) as React.FC;
-
   return (
     <>
       <TopicHeader title="Deploy Wallet Contract" />
       <main className="px-2 pt-12 w-full max-w-screen-lg mx-auto mb-36">
         <article className="flex flex-col gap-36">
-          <Content />
+          <MDX md={topic.body.code} />
         </article>
       </main>
     </>

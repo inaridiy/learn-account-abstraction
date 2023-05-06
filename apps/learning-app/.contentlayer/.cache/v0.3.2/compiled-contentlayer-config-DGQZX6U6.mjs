@@ -1,11 +1,11 @@
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { codeImport } from "remark-code-import";
 import remarkGfm from "remark-gfm";
-
-const Topic = defineDocumentType(() => ({
+var Topic = defineDocumentType(() => ({
   name: "Topic",
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
@@ -13,23 +13,22 @@ const Topic = defineDocumentType(() => ({
     title: {
       type: "string",
       description: "The title of the post",
-      required: true,
+      required: true
     },
     date: {
       type: "date",
       description: "The date of the post",
-      required: true,
-    },
+      required: true
+    }
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/${doc._raw.flattenedPath}`,
-    },
-  },
+      resolve: (doc) => `/${doc._raw.flattenedPath}`
+    }
+  }
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: "contents",
   documentTypes: [Topic],
   mdx: {
@@ -40,9 +39,13 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-light",
-        },
-      ],
-    ],
-  },
+          theme: "github-light"
+        }
+      ]
+    ]
+  }
 });
+export {
+  contentlayer_config_default as default
+};
+//# sourceMappingURL=compiled-contentlayer-config-DGQZX6U6.mjs.map
