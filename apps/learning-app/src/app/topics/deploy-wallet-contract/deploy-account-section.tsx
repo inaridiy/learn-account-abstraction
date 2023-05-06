@@ -14,7 +14,7 @@ export const DeployAccountSection = () => {
         Let&apos;s deploy the contract wallet. It&apos;s not that hard! In fact, creating an AA
         account is not much different from deploying an ERC721 NFT. All you need to do is to execute
         the deployment transaction. But the account thus created can unquestionably be used on
-        ERC4737!
+        ERC4337!
       </p>
       <p className="p-2 text-lg text-muted-foreground">
         Let&apos;s take this a step further. What are we doing now? We trying to deploy a type of
