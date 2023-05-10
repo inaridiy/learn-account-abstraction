@@ -76,7 +76,7 @@ export const SimplerUseropExecutePanel = () => {
   if (!factory || !entrypoint) return <ConnectButton />;
 
   return (
-    <Card className="w-full shadow flex flex-col">
+    <Card className="w-full shadow flex flex-col mt-4">
       <div className="w-full flex flex-col sm:flex-row">
         <div className="w-full max-w-sm flex-shrink-0">
           <CardHeader>

@@ -1,6 +1,5 @@
 "use client";
 import { ContractCallPanel } from "@/components/topic/contract-call-panel";
-import { simpleFactoryContract } from "@/contracts/simple-factory";
 import { accountAtom } from "@/states/crypto";
 import { useAtomValue } from "jotai";
 
@@ -39,14 +38,7 @@ export const DeployAccountSection = () => {
       </p>
 
       <div className="px-2 py-8">
-        <ContractCallPanel
-          contract={simpleFactoryContract}
-          functionName="createAccount"
-          initialArgs={{
-            owner: account?.address,
-            salt: "0",
-          }}
-        />
+        <ContractCallPanel contract="simpleFactory" functionName="createAccount" />
       </div>
     </section>
   );

@@ -1,13 +1,9 @@
 "use client";
 import { ContractCallPanel } from "@/components/topic/contract-call-panel";
 import { simpleFactoryContract } from "@/contracts/simple-factory";
-import { accountAtom } from "@/states/crypto";
-import { useAtomValue } from "jotai";
 import Image from "next/image";
 
 export const GuessAddressSection = () => {
-  const account = useAtomValue(accountAtom);
-
   const chainId = 137;
 
   return (
@@ -37,14 +33,7 @@ export const GuessAddressSection = () => {
       </p>
 
       <div className="px-2 py-8">
-        <ContractCallPanel
-          contract={simpleFactoryContract}
-          functionName="getAddress"
-          initialArgs={{
-            owner: account?.address,
-            salt: "0",
-          }}
-        />
+        <ContractCallPanel contract="simpleFactory" functionName="getAddress" />
       </div>
 
       <p className="p-2 text-lg text-muted-foreground">

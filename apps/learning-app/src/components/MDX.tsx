@@ -1,8 +1,12 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import type { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
+import { topicPanels } from "./topic";
 
 const components: MDXComponents = {
+  ...topicPanels,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className={cn("font-heading mt-2 scroll-m-20 text-4xl font-bold", className)} {...props} />
   ),
@@ -96,7 +100,7 @@ const components: MDXComponents = {
     return (
       <pre
         className={cn(
-          "mb-4 mt-6 max-h-[650px] py-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white",
+          "mb-4 mt-6 max-h-[650px] py-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white shadow",
           className
         )}
         {...props}

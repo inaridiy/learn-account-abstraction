@@ -54,7 +54,7 @@ export const SimplerUseropPanel = () => {
   if (!factory) return <ConnectButton />;
 
   return (
-    <Card className="w-full shadow flex flex-col sm:flex-row">
+    <Card className="w-full shadow flex flex-col sm:flex-row mt-4">
       <div className="w-full max-w-sm flex-shrink-0">
         <CardHeader>
           <CardTitle>UserOp Builder</CardTitle>
