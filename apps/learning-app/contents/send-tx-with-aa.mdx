@@ -1,0 +1,60 @@
+---
+id: send-tx-with-aa
+title: Step2. Send Tx with AA
+description: Let's execute a transaction using the AA wallet you created!
+steps:
+  - title: Learn about UserOp
+    description: Let's learn UserOp with hands-on experience!
+  - title: Send gas fee to AA wallet
+    description: Send gas fee to AA wallet to prepare.
+  - title: Send empty Tx with AA
+    description: Create an empty UserOp and send an empty Tx from AA
+startBtnText: Let's Go!
+---
+
+## 1. Learn About UserOp
+
+All transactions in the AA world are performed using an object called UserOperation. In
+other words, knowing UserOperation is knowing AA!
+
+UserOperation is just an object once you get going, but its creation is quite complex. So, I
+have prepared a cool tool that allows you to easily experience the generation of a
+UserOperation. With this tool, you can easily generate a UserOperation for a SimpleAccount
+(which you should have created earlier).
+
+Let's put aside the details and try to generate UserOperation by adding various values!
+
+<SimplerUseropPanel />
+
+## 2. Send gas fee to AA wallet
+
+Let's make one last preparation for sending tx. Maybe your wallet is still empty. This
+means you can't even pay for gas. So let's send some money to your wallet.
+
+<PayEthPanel description="Send ETH to the AA wallet you created!" />
+
+## 3. Send Empty Tx with AA
+
+Now you can finally send transactions using AA. Here are the steps for executing a
+transaction in AA.
+
+1. Prepare a contract wallet that supports AA.
+2. Create a UserOp for that wallet.
+3. Ask someone(bundler) to execute UserOp.
+
+For now, just press the SendTx button without thinking. Then the AA transaction will be
+executed according to the procedure. Is the transaction finished executing? You have done
+it! You have executed a empty transaction by your AA contract wallet.
+
+Let me explain what you did. You first created a UserOp to execute a transaction that does
+nothing. Next, you used that UserOp to execute an EntryPoint contract. This is exactly the
+same thing as the Bundler in AA. Then your AA wallet executed a transaction that did
+nothing.
+
+I want you to compare the balances in your EOA and AA wallets before and after you execute
+the transaction. Surprisingly, the balance in your EOA wallet has not decreased at all (in
+fact, it may have increased). Yes, the AA wallet paid for the gas for this transaction, and
+the gas was returned to the EOA wallet that executed the transaction instead! This is solid
+proof that you executed the AA transaction!
+
+<SimplerUseropExecutePanel />

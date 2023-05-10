@@ -12,8 +12,6 @@ import { allTopics } from "contentlayer/generated";
 import Link from "next/link";
 
 export default function Home() {
-  const topics = allTopics;
-
   return (
     <main className="flex flex-col items-center px-4 py-8 sm:py-24">
       <h1 className="text-4xl font-bold text-center">
@@ -22,7 +20,7 @@ export default function Home() {
       </h1>
 
       <div className="grid py-12 px-2 sm:px-4 gap-4 sm:grid-cols-2">
-        {topics.map((topic) => (
+        {allTopics.map((topic) => (
           <Card key={topic.id} className="flex flex-col">
             <CardHeader>
               <CardTitle>{topic.title}</CardTitle>
