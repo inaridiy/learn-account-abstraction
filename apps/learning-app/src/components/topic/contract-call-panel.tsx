@@ -1,8 +1,8 @@
 "use client";
 
+import { contracts } from "@/contracts";
 import { useContract } from "@/hooks/useContract";
 import { useMiniForm } from "@/hooks/useMiniForm";
-import { ContractSummary } from "@/states/crypto";
 import { Atom, atom, useAtomValue } from "jotai";
 import { loadable } from "jotai/utils";
 import { Loader2 } from "lucide-react";
@@ -15,19 +15,18 @@ import { Label } from "../ui/label";
 import { useToast } from "../ui/use-toast";
 
 export const ContractCallPanel: React.FC<{
-  contract: ContractSummary;
+  contract: keyof typeof contracts;
   functionName: string;
-  initialArgs?: Record<string, any>;
-}> = ({ contract: summary, functionName, initialArgs }) => {
-  const contract = useContract(summary);
+}> = ({ contract: summary, functionName }) => {
+  const contract = useContract(contracts[summary]);
   const fragment = contract?.interface.getFunction(functionName);
-  const { form, register } = useMiniForm(initialArgs);
+  const { form, register } = useMiniForm();
   const [executeAtom, setExecuteAtom] = useState<Atom<any>>(atom(null));
   const result = useAtomValue(executeAtom);
   const { toast } = useToast();
 
   if (!contract) return <ConnectButton />;
-  if (!fragment) throw new Error(`Function ${functionName} not found in contract ${summary.name}.`);
+  if (!fragment) throw new Error(`Function ${functionName} not found in contract ${summary}.`);
 
   const call = async () => {
     const result = contract[fragment.format()](...Object.values(form));
@@ -49,10 +48,10 @@ export const ContractCallPanel: React.FC<{
   };
 
   return (
-    <Card className="w-full shadow flex flex-col sm:flex-row overflow-auto">
+    <Card className="w-full shadow flex flex-col sm:flex-row overflow-auto mt-4">
       <div className="w-full max-w-sm flex-shrink-0">
         <CardHeader>
-          <CardTitle>{fragment.format()}</CardTitle>
+          <CardTitle className="overflow-x-auto">{fragment.format()}</CardTitle>
         </CardHeader>
         <CardContent className="gap-2 flex flex-col">
           {fragment.inputs.map((input, index) => (

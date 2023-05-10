@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 
 export const metadata = {
+  metadataBase: new URL("https://www.learn-aa.org/"),
   keywords: ["Ethereum", "Account Abstraction", "AA"],
   authors: [{ name: "inaridiy", twitter: "https://twitter.com/inaridiy" }],
   title: "Let's Learn Account Abstraction",
