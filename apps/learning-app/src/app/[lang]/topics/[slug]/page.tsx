@@ -2,17 +2,20 @@ import { MDX } from "@/components/MDX";
 import { TopicHeader } from "@/components/topic/topic-header";
 import { Topic, allTopics } from "contentlayer/generated";
 
+const findTopic = (lang: string, slug: string) =>
+  allTopics.find((topic) => topic.id === slug && topic._raw.sourceFileDir === lang);
+
 export const generateStaticParams = async () =>
-  allTopics.map((topic) => ({ slug: topic._raw.flattenedPath }));
+  allTopics.map((topic) => ({ lang: topic._raw.sourceFileDir, slug: topic.id }));
 
 export const generateMetadata = ({ params }: any) => {
-  const topic = allTopics.find((topic) => topic.id === params.slug);
+  const topic = findTopic(params.lang, params.slug);
   if (!topic) throw new Error(`Failed to find topic for slug: ${params.slug}`);
   return { title: topic.title };
 };
 
-export default function Topic({ params }: { params: { slug: string } }) {
-  const topic: Topic = allTopics.find((topic) => topic._raw.flattenedPath === params.slug) as Topic;
+export default function Topic({ params }: { params: { slug: string; lang: string } }) {
+  const topic: Topic = findTopic(params.lang, params.slug) as Topic;
 
   return (
     <>
