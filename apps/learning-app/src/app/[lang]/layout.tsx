@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Toaster } from "@/components/ui/toaster";
-import "./globals.css";
+import "../globals.css";
 import { Providers } from "./providers";
 
 export const metadata = {
