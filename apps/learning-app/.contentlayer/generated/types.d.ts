@@ -13,17 +13,33 @@ export type Topic = {
   _id: string
   _raw: Local.RawDocumentData
   type: 'Topic'
+  /** The id of the post */
+  id: string
   /** The title of the post */
   title: string
-  /** The date of the post */
-  date: IsoDateTimeString
+  /** The description of the post */
+  description: string
+  /** The steps of the post */
+  steps: Step[]
+  /** The text of the start button */
+  startBtnText: string
   /** MDX file body */
   body: MDX
   url: string
 }  
 
 /** Nested types */
-  
+export type Step = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'Step'
+  /** The title of the post */
+  title: string
+  /** The description of the post */
+  description?: string | undefined
+
+}  
 
 /** Helper types */
 
@@ -33,8 +49,8 @@ export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 export type DocumentTypes = Topic
 export type DocumentTypeNames = 'Topic'
 
-export type NestedTypes = never
-export type NestedTypeNames = never
+export type NestedTypes = Step
+export type NestedTypeNames = 'Step'
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
@@ -62,7 +78,7 @@ export type DocumentTypeMap = {
 }
 
 export type NestedTypeMap = {
-
+  Step: Step
 }
 
  

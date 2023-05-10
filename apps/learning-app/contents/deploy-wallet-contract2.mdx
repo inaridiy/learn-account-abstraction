@@ -1,0 +1,70 @@
+---
+id: deploy-wallet-contract
+title: Step1. Just Deploy Wallet Contract
+description: Deploy a smart contract wallet that supports AccountAbstraction!
+steps:
+  - title: Guess Address
+    description: Guess the address of the contract wallet you are about to deploy!
+  - title: Deploy AA Account
+    description: Deploy a contract wallet that supports AccountAbstraction!
+  - title: Check Address
+    description: Check the address of the contract wallet you just deployed!
+startBtnText: Let's Go!
+---
+
+## 1. Guess Address
+
+AA wallets are just contract wallets once you go there, so you need to deploy them to the
+blockchain before you use them. Before deploying,
+try to guess to which address the walletwill deploy!
+
+In this case, we will deploy a contract wallet using a contract called
+[SimpleAccountFactory](https://polygonscan.com/address/0x9406Cc6185a346906296840746125a0E44976454)
+
+In addition to deploying a contract wallet, this contract also has a function called
+`getAddress` that looks up the address to which it will be deployed. The getAddress function
+takes an owner (i.e., you) and a salt (any uin256 value).
+
+<ContractCallPanel contract="simpleFactory" functionName="getAddress" />
+
+If you look at the previous address in polygonscan, you will see that the contract has not
+yet been deployed!
+
+![not-deploy-polygonscan.png](/topics/not-deploy-polygonscan.png)
+
+## 2. Deploy AA Account
+
+Let's deploy the contract wallet. It's not that hard! In fact, creating an AA
+account is not much different from deploying an ERC721 NFT. All you need to do is to execute
+the deployment transaction. But the account thus created can unquestionably be used on
+ERC4737!
+
+Let's take this a step further. What are we doing now? We trying to deploy a type of
+contract wallet called SimpleAccount. This is a bit of a misnomer. SimpleAccount is just one
+of countless implementations (and of course you can create your own). Just as there are
+countless contracts along the ERC721 standard.
+
+In addition, this time we will use a contract called SimpleAccountFactory, which is a
+contract for deploying this SimpleAccount. This is the one we call in the previous section.
+The reason why we use SimpleAccountFactory is, simply put, because it is convenient. Because
+it is already on-chain and can be used without any particular configuration. However, it may
+be wrong to create Factory contract first when you create a new contract wallet. Because it
+may lose simplicity. In fact, SimpleAccountFactory is just a contract to deploy
+SimpleAccount, and it is not necessary for a small operation check.
+
+Long story short. Now hit the Call button at the bottom (you can change the SALT, of
+course).OWNER may not want to mess with it. You cannot control the wallet you have created.
+Once you are sure the transaction went through, let's move on to the next section.
+
+<ContractCallPanel contract="simpleFactory" functionName="createAccount" />
+
+## 3. Check Address
+
+This is the last time. Let&apos;s check the contract wallet we just deployed with
+BlockchainExplorer. I would like you to paste the address you checked in Section 1 again
+into PolygonScan or other software to check it. Then, the address that was treated as just
+an Address earlier is recognized as a contract. This may not seem like a big deal, but it is
+true that we were able to deploy an account that can be used with AccountAbstraction. This
+address will be used in future courses, so make sure you save it.
+
+![deployed-polygonscan.png](/topics/deployed-polygonscan.png)

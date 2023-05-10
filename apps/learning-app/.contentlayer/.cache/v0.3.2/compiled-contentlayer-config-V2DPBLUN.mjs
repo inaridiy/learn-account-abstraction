@@ -1,26 +1,25 @@
+// contentlayer.config.ts
 import { defineDocumentType, defineNestedType, makeSource } from "contentlayer/source-files";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { codeImport } from "remark-code-import";
 import remarkGfm from "remark-gfm";
-
-const Step = defineNestedType(() => ({
+var Step = defineNestedType(() => ({
   name: "Step",
   fields: {
     title: {
       type: "string",
       description: "The title of the post",
-      required: true,
+      required: true
     },
     description: {
       type: "string",
-      description: "The description of the post",
-    },
-  },
+      description: "The description of the post"
+    }
+  }
 }));
-
-const Topic = defineDocumentType(() => ({
+var Topic = defineDocumentType(() => ({
   name: "Topic",
   filePathPattern: `**/*.mdx`,
   contentType: "mdx",
@@ -28,39 +27,38 @@ const Topic = defineDocumentType(() => ({
     id: {
       type: "string",
       description: "The id of the post",
-      required: true,
+      required: true
     },
     title: {
       type: "string",
       description: "The title of the post",
-      required: true,
+      required: true
     },
     description: {
       type: "string",
       description: "The description of the post",
-      required: true,
+      required: true
     },
     steps: {
       type: "list",
       description: "The steps of the post",
       required: true,
-      of: Step,
+      of: Step
     },
     startBtnText: {
       type: "string",
       description: "The text of the start button",
-      required: true,
-    },
+      required: true
+    }
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/${doc._raw.flattenedPath}`,
-    },
-  },
+      resolve: (doc) => `/${doc._raw.flattenedPath}`
+    }
+  }
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: "contents",
   documentTypes: [Topic],
   mdx: {
@@ -71,9 +69,13 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "github-light",
-        },
-      ],
-    ],
-  },
+          theme: "github-light"
+        }
+      ]
+    ]
+  }
 });
+export {
+  contentlayer_config_default as default
+};
+//# sourceMappingURL=compiled-contentlayer-config-V2DPBLUN.mjs.map

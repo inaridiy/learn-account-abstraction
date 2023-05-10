@@ -6,7 +6,7 @@ export const generateStaticParams = async () =>
   allTopics.map((topic) => ({ slug: topic._raw.flattenedPath }));
 
 export const generateMetadata = ({ params }: any) => {
-  const topic = allTopics.find((topic) => topic._raw.flattenedPath === params.slug);
+  const topic = allTopics.find((topic) => topic.id === params.slug);
   if (!topic) throw new Error(`Failed to find topic for slug: ${params.slug}`);
   return { title: topic.title };
 };

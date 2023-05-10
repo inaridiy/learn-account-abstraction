@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import type { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
 import { topicPanels } from "./topic";
 
 const components: MDXComponents = {
@@ -55,6 +56,17 @@ const components: MDXComponents = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)} {...props} />
   ),
+  img: ({ className, alt, src, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <Image
+      className={cn("rounded-md border max-w-lg", className)}
+      src={src || ""}
+      alt={alt || ""}
+      width={800}
+      height={400}
+    />
+  ),
+
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
   ),
