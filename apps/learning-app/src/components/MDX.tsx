@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import type { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
-import Image from "next/image";
 import { topicPanels } from "./topic";
 
 const components: MDXComponents = {
@@ -59,10 +58,11 @@ const components: MDXComponents = {
   img: ({ className, alt, src, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      className={cn("rounded-md border max-w-lg w-full", className)}
+      className={cn("rounded-md border max-w-lg", className)}
       src={src || ""}
       alt={alt || ""}
-      {...props}
+      width={800}
+      height={400}
     />
   ),
 
@@ -111,7 +111,7 @@ const components: MDXComponents = {
     return (
       <pre
         className={cn(
-          "mb-4 mt-6 max-h-[650px] py-4 px-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white shadow",
+          "mb-4 mt-6 max-h-[650px] py-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white shadow",
           className
         )}
         {...props}
@@ -119,7 +119,7 @@ const components: MDXComponents = {
     );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code className={cn("relative rounded font-mono text-sm", className)} {...props} />
+    <code className={cn("relative rounded font-mono text-sm px-4", className)} {...props} />
   ),
 };
 
