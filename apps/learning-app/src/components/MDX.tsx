@@ -59,7 +59,7 @@ const components: MDXComponents = {
   img: ({ className, alt, src, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
     <Image
-      className={cn("rounded-md border max-w-lg", className)}
+      className={cn("rounded-md border max-w-lg w-full", className)}
       src={src || ""}
       alt={alt || ""}
       width={800}
