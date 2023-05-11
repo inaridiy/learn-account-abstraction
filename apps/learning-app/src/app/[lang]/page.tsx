@@ -21,7 +21,7 @@ export default function Home({ params }: { params: { lang: string } }) {
     <main className="flex flex-col items-center px-4 py-8 sm:py-24">
       <h1 className="text-4xl font-bold text-center">{title[params.lang as keyof typeof title]}</h1>
 
-      <div className="grid py-12 px-2 sm:px-4 gap-4 sm:grid-cols-2">
+      <div className="grid py-12 px-0 sm:px-4 gap-4 sm:grid-cols-2">
         {allTopics
           .filter((topic) => topic._raw.sourceFileDir === params.lang)
           .map((topic) => (
