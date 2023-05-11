@@ -111,7 +111,7 @@ const components: MDXComponents = {
     return (
       <pre
         className={cn(
-          "mb-4 mt-6 max-h-[650px] py-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white shadow",
+          "mb-4 mt-6 max-h-[650px] py-4 px-4 overflow-x-auto rounded-lg border data-[theme=dark]:bg-background data-[theme=light]:bg-white shadow",
           className
         )}
         {...props}
@@ -119,7 +119,7 @@ const components: MDXComponents = {
     );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <code className={cn("relative rounded font-mono text-sm px-4", className)} {...props} />
+    <code className={cn("relative rounded font-mono text-sm px-1", className)} {...props} />
   ),
 };
 
