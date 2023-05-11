@@ -36,10 +36,10 @@ export default function ToggleLang() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link href={redirectedPathName("en")}>🇺🇸 US-English</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <Link href={redirectedPathName("ja")}>🇯🇵 日本語</Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
