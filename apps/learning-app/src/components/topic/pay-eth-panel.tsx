@@ -29,6 +29,8 @@ export const PayEthPanel: React.FC<{
   const { refetch: refetch1, balance: yourBalance } = useBalance(account?.address || "0x");
   const { refetch: refetch2, balance: targetBalance } = useBalance(form.target || "0x");
 
+  const symbol = "MATIC"; //マルチチェーン対応するならここを変える
+
   useEffect(() => {
     if (!factory || !account || form.target) return;
 
@@ -106,14 +108,20 @@ export const PayEthPanel: React.FC<{
       <div className="py-2 px-4 sm:border-l overflow-auto">
         <h3 className="text-lg font-bold pt-2">Balances</h3>
         <div className="flex justify-between gap-2 pl-2 pt-2 items-center">
-          <div className="text-lg font-bold">{yourBalance}ETH</div>
+          <div className="text-lg font-bold">
+            {yourBalance}
+            {symbol}
+          </div>
           <div className="border-l pl-2">
             <div className="font-bold">You</div>
             <div className="text-sm text-muted-foreground font-mono">{account?.address}</div>
           </div>
         </div>
         <div className="flex justify-between gap-2 pl-2 pt-4 items-center">
-          <div className="text-lg font-bold">{targetBalance}ETH</div>
+          <div className="text-lg font-bold">
+            {targetBalance}
+            {symbol}
+          </div>
           <div className="border-l pl-2">
             <div className="font-bold">Target</div>
             <div className="text-sm text-muted-foreground font-mono">{form.target}</div>
