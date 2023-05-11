@@ -1,6 +1,9 @@
-import Script from "next/script";
+"use client";
 
-export const Analytics = () => {
+import Script from "next/script";
+import { Suspense } from "react";
+
+const GoogleAnalytics = () => {
   return (
     <>
       <Script
@@ -9,6 +12,7 @@ export const Analytics = () => {
         src="https://www.googletagmanager.com/gtag/js?id=G-4VE4MY4EKG"
       ></Script>
       <Script
+        id="ga"
         async
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -20,5 +24,13 @@ export const Analytics = () => {
         }}
       ></Script>
     </>
+  );
+};
+
+export const Analytics = () => {
+  return (
+    <Suspense>
+      <GoogleAnalytics />
+    </Suspense>
   );
 };
