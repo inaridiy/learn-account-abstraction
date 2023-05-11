@@ -45,7 +45,10 @@ export default function Home({ params }: { params: { lang: string } }) {
                 ))}
               </CardContent>
               <CardFooter>
-                <Link href={`/topics/${topic.id}`} className={cn(buttonVariants({}), "w-full")}>
+                <Link
+                  href={`/${topic._raw.sourceFileDir}/topics/${topic.id}`}
+                  className={cn(buttonVariants({}), "w-full")}
+                >
                   {topic.startBtnText}
                 </Link>
               </CardFooter>
