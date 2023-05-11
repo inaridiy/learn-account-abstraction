@@ -11,13 +11,15 @@ import { cn } from "@/lib/utils";
 import { allTopics } from "contentlayer/generated";
 import Link from "next/link";
 
+const title = {
+  en: "Let's Learn Account Abstraction",
+  ja: "Account Abstractionを学ぼう!",
+};
+
 export default function Home({ params }: { params: { lang: string } }) {
   return (
     <main className="flex flex-col items-center px-4 py-8 sm:py-24">
-      <h1 className="text-4xl font-bold text-center">
-        {"Let's Learn"} <br />
-        Account Abstraction
-      </h1>
+      <h1 className="text-4xl font-bold text-center">{title[params.lang as keyof typeof title]}</h1>
 
       <div className="grid py-12 px-2 sm:px-4 gap-4 sm:grid-cols-2">
         {allTopics

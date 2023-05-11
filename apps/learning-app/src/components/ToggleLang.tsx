@@ -29,7 +29,7 @@ export default function ToggleLang() {
       <DropdownMenuTrigger className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0")}>
         <Languages />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="w-48">
         <DropdownMenuLabel className="flex items-center">
           <Globe className="mr-1 w-4 h-4" />
           <span> Languages</span>
