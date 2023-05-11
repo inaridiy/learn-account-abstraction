@@ -1,8 +1,30 @@
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Toaster } from "@/components/ui/toaster";
+import { Noto_Sans_JP, Roboto, Roboto_Mono } from "next/font/google";
 import "../globals.css";
 import { Providers } from "./providers";
+
+const roboto = Roboto({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
+});
+
+const robotoMono = Roboto_Mono({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-sans-jp",
+});
 
 export const metadata = {
   metadataBase: new URL("https://www.learn-aa.org/"),
@@ -38,7 +60,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto.variable} ${robotoMono.variable} ${notoSansJP.variable}`}>
       <body className="min-h-[100dvh] flex flex-col">
         <Toaster />
         <Header />
