@@ -35,6 +35,11 @@ export const PayEthPanel: React.FC<{
     factory["getAddress(address,uint256)"](account.address, 0).then((address) => {
       updateForm("target", address);
     });
+
+    signer?.provider.on("block", () => {
+      refetch1();
+      refetch2();
+    });
   }, [factory, account]);
 
   const send = async () => {

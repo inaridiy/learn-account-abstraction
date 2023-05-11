@@ -12,49 +12,53 @@ steps:
 startBtnText: Let's Go!
 ---
 
-## 1. Learn About UserOp
+## 1. UserOp について知っておこう
 
-All transactions in the AA world are performed using an object called UserOperation. In
-other words, knowing UserOperation is knowing AA!
+AA の世界では全てのトランザクションが UserOperation というオブジェクトを使用します。
+つまり、UserOperation を知れば AA を知ることになるのです！
 
-UserOperation is just an object once you get going, but its creation is quite complex. So, I
-have prepared a cool tool that allows you to easily experience the generation of a
-UserOperation. With this tool, you can easily generate a UserOperation for a SimpleAccount
-(which you should have created earlier).
+UserOperation は言ってしまえばただのオブジェクトですが、その生成方法はかなり複雑です。
+そこで、今回は UserOperation の生成を簡単に体験できる最高に Cool なツールを用意しました。
+このツールを使えば、SimpleAccount(前のコースで作成したやつ) 用の UserOperation を簡単に生成できます。
+(...結構大変だったぜ)
 
-Let's put aside the details and try to generate UserOperation by adding various values!
+細かいことは置いといて、いろいろな値を入れて UserOperation を生成してみることにしましょう！
 
 <SimplerUseropPanel />
 
-## 2. Send gas fee to AA wallet
+## 2. AA ウォレットにガス代を送ろう
 
-Let's make one last preparation for sending tx. Maybe your wallet is still empty. This
-means you can't even pay for gas. So let's send some money to your wallet.
+さあトランザクションを実行しよう...とその前に最後の準備をする必要があります。
+おそらくあなたのウォレットはまだ空っぽだと思います。つまり、ガス代すら払えない状態です。
+そこで、まずはウォレットにお金を送っておきましょう。大体 0.1MATIC ぐらいあれば十分です。
 
 <PayEthPanel description="Send ETH to the AA wallet you created!" />
 
-## 3. Send Empty Tx with AA
+## 3. AA で空のトランザクションを実行しよう
 
 Now you can finally send transactions using AA. Here are the steps for executing a
 transaction in AA.
 
-1. Prepare a contract wallet that supports AA.
-2. Create a UserOp for that wallet.
-3. Ask someone(bundler) to execute UserOp.
+あなたはついに AA を使ってトランザクションを送ることができるようになりました。
+最後に AA でトランザクションを実行する手順を説明します。
 
-For now, just press the SendTx button without thinking. Then the AA transaction will be
-executed according to the procedure. Is the transaction finished executing? You have done
-it! You have executed a empty transaction by your AA contract wallet.
+1. AA をサポートしているコントラクトウォレットを用意する
+2. そのウォレットに対して UserOp を作成する
+3. UserOp を実行してもらうために誰か(bundler)に頼む
 
-Let me explain what you did. You first created a UserOp to execute a transaction that does
-nothing. Next, you used that UserOp to execute an EntryPoint contract. This is exactly the
-same thing as the Bundler in AA. Then your AA wallet executed a transaction that did
-nothing.
+つまり、準備はもう済んでいます!とりあえずあまり何も考えずに SendTx ボタンを押してみましょう。(二回署名を求められるはずです)
+...トランザクションは実行されましたか？おめでとうございます！あなたは AA のトランザクションを実行しました。
+というっても、実行したのは空のトランザクションですが、それでも AA のトランザクションを実行したことには変わりありません!!!!
 
-I want you to compare the balances in your EOA and AA wallets before and after you execute
-the transaction. Surprisingly, the balance in your EOA wallet has not decreased at all (in
-fact, it may have increased). Yes, the AA wallet paid for the gas for this transaction, and
-the gas was returned to the EOA wallet that executed the transaction instead! This is solid
-proof that you executed the AA transaction!
+では、あなたが何をしたのか説明しましょう。まず、何もしないトランザクションを実行する UserOp を作成しました。
+次に、その UserOp を使って EntryPoint コントラクトの関数を実行しました。これはまさに AA の Bundler が行うことと同じです。
+そして、あなたの AA ウォレットが何もしないトランザクションを実行しました。
+
+このトランザクションの実行前と後で EOA と AA ウォレットの残高をそれぞれ比較してみてください。(上の送金パネルで確認できます。)
+驚くことに、EOA ウォレットの残高は全く減っていないはずです(ちょっと増えているかもしれません)。
+そうです、AA ウォレットがこのトランザクションのガス代を支払い、EOA に返金されたのです！
+これはあなたが AA のトランザクションを実行したという確固たる証拠です！
+
+おそらく、まだ何をしたのかよくわからないと思います。ですが、なんとなくは AA について感じることができたのではないでしょうか？
 
 <SimplerUseropExecutePanel />
