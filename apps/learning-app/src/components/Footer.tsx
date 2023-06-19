@@ -4,7 +4,10 @@ const links = [
   { name: "AA Repository", link: "https://github.com/eth-infinitism/account-abstraction" },
   { name: "EIP4337", link: "https://eips.ethereum.org/EIPS/eip-4337" },
   { name: "Stackup", link: "https://www.stackup.sh/" },
-  { name: "Vitlik Blog", link: "https://notes.ethereum.org/@vbuterin/account_abstraction_roadmap" },
+  {
+    name: "Vitalik Blog",
+    link: "https://notes.ethereum.org/@vbuterin/account_abstraction_roadmap",
+  },
 ];
 
 export const Footer = () => {
